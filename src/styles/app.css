@@ -2,3 +2,34 @@
   Inject Tailwind's base styles and use the Twin Macro with emotion to use
   the rest of Tailwind's classes in the project
 */
+
+@font-face {
+  font-family: "messinaMono";
+  src: url("../fonts/MessinaSansMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "messinaMonoLight";
+  src: url("../fonts/MessinaModern-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "messina";
+  src: url("../fonts/MessinaSansMono-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "messinaBook";
+  src: url("../fonts/MessinaSansMono-Book.woff2") format("woff2");
+}
+
+body {
+  @apply font-sans;
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+}
+.swiper-pagination-bullet-active {
+  background: #111;
+}

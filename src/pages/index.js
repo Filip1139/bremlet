@@ -1,89 +1,105 @@
-import tw from "twin.macro"
 import React from "react"
-
+import Hero from "../components/Hero/index"
+import { graphql } from "gatsby"
+import OverlapImages from "../components/OverlapImages"
+import tw from "twin.macro"
+import NewCollection from "../components/NewCollection"
+import NewProductsGrid from "../components/NewProductsGrid"
+import HomeAbout from "../components/HomeAbout"
+import CollectionJumbo from "../components/CollectionJumbo"
 import SEO from "../components/seo"
-import Layout from "../components/layout"
 
-import github from "../images/github.svg"
+// import SEO from "../components/seo"
 
-const logos = [
-  {
-    name: "gatsby",
-    logo: require("../images/gatsby.svg"),
-  },
-  {
-    name: "tailwind",
-    logo: require("../images/tailwind.svg"),
-  },
-  {
-    name: "emotion",
-    logo: require("../images/emotion.png"),
-  },
-]
+export default function Index({ data: { home, products } }) {
+  const {
+    HomeACF: { collection, collectionSecond, textImgGroup, collectionCta },
+  } = home
 
-const Wrapper = tw.div`
-  flex items-center justify-center flex-col h-screen
-`
-
-const Main = tw.div`
-  p-6 bg-gray-100 rounded-lg shadow-2xl
-`
-
-const Heading = tw.h1`
-  text-2xl text-gray-500 uppercase
-`
-
-const Text = tw.p`
-  text-xl text-gray-700
-`
-
-const Logos = tw.div`
-  flex items-center justify-around mb-6 px-16
-`
-
-const Icon = tw.img`
-  h-10
-`
-
-const Footer = tw.footer`
-  mt-6 text-center
-`
-
-const SmallIcon = tw.img`
-  inline-block h-6
-`
-
-export default function Index() {
   return (
-    <Layout>
-      <Wrapper>
-        <SEO title="Welcome" />
-        <Main>
-          <Logos>
-            {logos &&
-              logos.map(({ name, logo }, index) => (
-                <Icon src={logo} alt={`${name} Logo`} key={index} />
-              ))}
-          </Logos>
-          <Heading>Hello, world!</Heading>
-          <Text>
-            Welcome to the Tailwind CSS{" "}
-            <span role="img" aria-label="and">
-              ➕
-            </span>{" "}
-            Emotion Starter for Gatsby.
-          </Text>
-          <Footer>
-            <a
-              href="https://github.com/pauloelias/gatsby-tailwind-emotion-starter"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SmallIcon src={github} alt="Github Icon" />
-            </a>
-          </Footer>
-        </Main>
-      </Wrapper>
-    </Layout>
+    <>
+      <SEO />
+      <Hero fields={home} />
+      <OverlapImages fields={home} />
+      <NewCollection fields={collection} />
+      <NewProductsGrid fields={products.nodes} title="Nowe produkty" />
+      <NewCollection fields={collectionSecond} direction="row-reverse" />
+      <HomeAbout fields={textImgGroup} />
+      <CollectionJumbo fields={collectionCta} />
+    </>
   )
 }
+
+export const query = graphql`
+  {
+    home: wpPage(slug: { eq: "strona-glowna" }) {
+      HomeACF {
+        heroHeading
+        heroBg {
+          ...acfImageFragment
+        }
+        heroBgMobile {
+          ...acfImageFragment
+        }
+        heroCta {
+          ...acfLinkFragment
+        }
+        overlapBtn {
+          ...acfLinkFragment
+        }
+        overlapImg1 {
+          ...acfImageFragment
+        }
+        overlapImg2 {
+          ...acfImageFragment
+        }
+        overlapText
+
+        collection {
+          ...collections
+        }
+        collectionSecond {
+          ...collectionsSecond
+        }
+        textImgGroup {
+          img {
+            ...acfImageFragment
+          }
+          img2 {
+            ...acfImageFragment
+          }
+          img3 {
+            ...acfImageFragment
+          }
+          text
+        }
+
+        collectionCta {
+          text
+          textAccent
+          title
+          img {
+            ...acfImageFragment
+          }
+        }
+      }
+    }
+    products: allWpProdukt(limit: 6, sort: { fields: date, order: DESC }) {
+      nodes {
+        id
+        title
+        slug
+        SingleProduct {
+          productPng {
+            ...acfImageFragment
+          }
+        }
+        featuredImage {
+          node {
+            ...acfImageFragment
+          }
+        }
+      }
+    }
+  }
+`
