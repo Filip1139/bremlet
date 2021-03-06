@@ -1,23 +1,23 @@
-import React, {useEffect, useRef} from "react"
+import React, { useEffect, useRef } from "react"
 import tw, { styled } from "twin.macro"
 import Button from "../../components/Button"
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-
-
-
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock"
 
 import { FaFacebookSquare } from "react-icons/fa"
 import { FaInstagram } from "react-icons/fa"
 
 export default function ContactForm({ show, handleVisibility }) {
-  
-  const overlayWrapper = useRef();
-  useEffect(() => {
-    disableBodyScroll(overlayWrapper);
-    return () => {
-      enableBodyScroll(this.targetElement);
-    }
-  }, [])
+  const overlayWrapper = useRef()
+
+  if (show) {
+    disableBodyScroll(overlayWrapper.current)
+  } else {
+    clearAllBodyScrollLocks()
+  }
 
   return (
     <>
@@ -71,7 +71,7 @@ export default function ContactForm({ show, handleVisibility }) {
           </div>
         </StyledFormWrapper>
       </StyledWrapper>
-    </styles>
+    </>
   )
 }
 

@@ -34,6 +34,10 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
+        normalizers: (normalizers) => [
+          dropUnusedMediaNormalizer,
+          ...normalizers,
+        ],
         /*
          * The full URL of the WordPress site's GraphQL API.
          * Example : 'https://www.example-site.com/graphql'

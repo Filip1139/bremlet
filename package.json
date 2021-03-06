@@ -49,7 +49,6 @@
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-source-filesystem": "^3.0.0",
-    "gatsby-source-instagram": "^0.9.0",
     "gatsby-source-instagram-all": "^3.0.4",
     "gatsby-source-wordpress": "^5.0.0",
     "gatsby-transformer-sharp": "^3.0.0",

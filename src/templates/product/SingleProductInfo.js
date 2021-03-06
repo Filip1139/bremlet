@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import tw, { styled } from "twin.macro"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 
 import ImagesThumbnails from "../../components/ImagesThumbnails"
 import Tabs from "../../components/Tabs"
@@ -36,9 +37,11 @@ export default function SingleProductInfo({
   ]
 
   const [visibility, setVisibility] = useState(false)
+  const overlayWrapper = useRef()
 
   const showSidebar = () => {
     setVisibility(true)
+    disableBodyScroll(overlayWrapper)
   }
 
   return (
@@ -70,10 +73,11 @@ export default function SingleProductInfo({
           </div>
         </div>
       </StyledContentWrapper>
-      {/* <ContactForm
+
+      <ContactForm
         show={visibility}
         handleVisibility={(visibility) => setVisibility(visibility)}
-      /> */}
+      />
     </>
   )
 }
