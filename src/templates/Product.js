@@ -14,12 +14,13 @@ import TextImage from "./product/TextImage"
 import ProductDetails from "./product/ProductDetails"
 import RelatedItems from "./product/RelatedItems"
 import ImageCTA from "./product/ImageCTA"
+import SEO from "../components/seo"
 
 export default function Product({ data }) {
   const {
-    product: { SingleProduct, title, date, slug },
+    product: { SingleProduct, title, date, slug, seo },
   } = data
-  console.log(data)
+
   const [imagesRefs, setImagesRefs] = useState([])
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
 
@@ -29,39 +30,42 @@ export default function Product({ data }) {
 
   const renderProductImages = () => {
     const currentComponent = isTabletOrMobile ? (
-      <SingleImageSlider images={SingleProduct.gallery} />
+      <SingleImageSlider images={SingleProduct?.gallery} />
     ) : (
-      <SingleProductImages images={SingleProduct.gallery} getRefs={getRefs} />
+      <SingleProductImages images={SingleProduct?.gallery} getRefs={getRefs} />
     )
     return currentComponent
   }
 
   return (
-    <article className={`product-${slug}`}>
-      <StyledProductIntroGrid>
-        {renderProductImages()}
+    <>
+      <SEO description={seo.description} title={seo.title} />
+      <article className={`product-${slug}`}>
+        <StyledProductIntroGrid>
+          {renderProductImages()}
 
-        <SingleProductInfo
-          productInfo={SingleProduct}
-          imagesRefs={imagesRefs}
-          date={date}
-          title={title}
+          <SingleProductInfo
+            productInfo={SingleProduct}
+            imagesRefs={imagesRefs}
+            date={date}
+            title={title}
+          />
+        </StyledProductIntroGrid>
+
+        {SingleProduct.textImage && <TextImage {...SingleProduct.textImage} />}
+
+        <ProductDetails
+          demensions={SingleProduct.demensions}
+          details={SingleProduct.details}
+          bgImage={SingleProduct.detailsImg}
         />
-      </StyledProductIntroGrid>
+        {SingleProduct.crossProducts && (
+          <RelatedItems items={SingleProduct.crossProducts} />
+        )}
 
-      {SingleProduct.textImage && <TextImage {...SingleProduct.textImage} />}
-
-      <ProductDetails
-        demensions={SingleProduct.demensions}
-        details={SingleProduct.details}
-        bgImage={SingleProduct.detailsImg}
-      />
-      {SingleProduct.crossProducts && (
-        <RelatedItems items={SingleProduct.crossProducts} />
-      )}
-
-      {SingleProduct.imageCta && <ImageCTA {...SingleProduct.imageCta} />}
-    </article>
+        {SingleProduct.imageCta && <ImageCTA {...SingleProduct.imageCta} />}
+      </article>
+    </>
   )
 }
 
@@ -71,8 +75,13 @@ const StyledProductIntroGrid = styled.div`
 `
 
 export const query = graphql`
-  {
-    product: wpProdukt(slug: { eq: "szwedzka-pochodnia" }) {
+  query($slug: String!) {
+    product: wpProdukt(slug: { eq: $slug }) {
+      seo {
+        title
+        metaDesc
+        metaKeywords
+      }
       date(difference: "days")
       title
       slug

@@ -20,7 +20,7 @@ export default function ProductCard({
   return (
     <StyledCard cols={cols}>
       {showBadge && <Badge title="new" />}
-      <Link tw="mb-3" to={`produkt/${productInfo?.slug}`}>
+      <Link tw="mb-3" to={`/produkt/${productInfo?.slug}`}>
         <StyledImagesWrapper direction={direction}>
           {pngImg && <Image fluid={pngImg} tw="h-full w-1/2"></Image>}
           {productImg && <Image fluid={productImg} tw="h-full w-1/2"></Image>}

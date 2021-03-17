@@ -7,12 +7,12 @@ export default function SingleProductImages({ images, getRefs }) {
 
   useEffect(() => {
     getRefs(itemsRef)
-  }, [])
+  }, [itemsRef])
 
   return (
     <>
       <div tw="flex flex-col lg:col-span-7 ">
-        {images.map((img, idx) => (
+        {images?.map((img, idx) => (
           <div
             key={img?.localFile?.childImageSharp?.id}
             tw="h-screen"

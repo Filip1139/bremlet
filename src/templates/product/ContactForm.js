@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import tw, { styled } from "twin.macro"
 import Button from "../../components/Button"
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks,
-} from "body-scroll-lock"
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
 
 import { FaFacebookSquare } from "react-icons/fa"
 import { FaInstagram } from "react-icons/fa"
@@ -60,11 +56,11 @@ export default function ContactForm({ show, handleVisibility }) {
           <div tw="text-white">
             <p>Nasze social media:</p>
             <div tw="flex mt-2  text-lg">
-              <a href="#" target="_blank" tw="mr-2">
+              <a href="https://twitter.com" target="_blank" tw="mr-2">
                 <FaFacebookSquare />
               </a>
 
-              <a href="#" target="_blank">
+              <a href="https://www.facebook.com" target="_blank">
                 <FaInstagram />
               </a>
             </div>
@@ -76,12 +72,13 @@ export default function ContactForm({ show, handleVisibility }) {
 }
 
 const StyledWrapper = styled.div`
-  /* ${tw`fixed inset-y-0 right-0 w-1/4 bg-black`} */
+  ${tw`z-50`}
 `
 
 const StyledOverlay = styled.div`
   ${tw`fixed inset-0 invisible transition-all duration-200 bg-black opacity-0 `}
   ${({ show }) => show && tw`visible opacity-40`}
+  backdrop-filter: blugatsbyr(10px);
 `
 
 const StyledFormWrapper = styled.div`

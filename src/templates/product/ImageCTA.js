@@ -10,7 +10,7 @@ export default function ImageCTA({ bg, text = "CTA TEXT", link }) {
       <div tw="absolute inset-0 z-0 ">
         <Image
           tw="h-full object-cover"
-          fluid={bg.localFile.childImageSharp.fluid}
+          fluid={bg?.localFile?.childImageSharp?.fluid}
         ></Image>
       </div>
 
@@ -21,7 +21,7 @@ export default function ImageCTA({ bg, text = "CTA TEXT", link }) {
           tw=" mt-20 md:mt-36 lg:mt-20 mx-auto 2xl:mt-10"
           variant="white-bg"
           to={link?.url}
-          title={link.title}
+          title={link?.title}
         />
       </div>
     </section>

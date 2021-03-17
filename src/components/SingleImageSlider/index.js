@@ -21,7 +21,7 @@ export default function SingleImageSlider({ images }) {
     <section tw="overflow-hidden pb-10 ">
       <StyledSwiperWrapper>
         <StyledSwiper {...sliderParams}>
-          {images.map((slide) => (
+          {images?.map((slide) => (
             <SwiperSlide>
               <div>
                 <a href={slide.localFile.childImageSharp.fluid.src}>

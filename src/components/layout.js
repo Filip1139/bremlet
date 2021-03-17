@@ -3,6 +3,7 @@ import { GlobalStyles } from "twin.macro"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./Header"
 import Footer from "./Footer"
+import SEO from "../components/seo"
 
 export default function Layout({ children }) {
   const data = useStaticQuery(graphql`
@@ -32,6 +33,7 @@ export default function Layout({ children }) {
 
   return (
     <>
+      <SEO />
       <GlobalStyles />
       <Header menu={data.wpMenu} />
       {children}

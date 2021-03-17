@@ -10,7 +10,7 @@ export default function ImagesThumbnails({ images, imagesRefs }) {
 
   return (
     <StyledWrapper tw="absolute left-0 ">
-      {images.map((img, idx) => (
+      {images?.map((img, idx) => (
         <div
           onClick={() => scrollToImage(imagesRefs.current[idx])}
           key={idx + img?.localFile?.childImageSharp?.id}

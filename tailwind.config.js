@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         ["accent-gray"]: "#262525",
         ["accent-light-gray"]: "#f2efec",
+        ["accent"]: "#e6813e",
       },
       fontSize: {
         xxs: "	0.625rem",
@@ -32,6 +33,7 @@ module.exports = {
   },
   variants: {},
   plugins: [
+    require("@tailwindcss/typography"),
     ({ addComponents, theme }) => {
       addComponents({
         ".container": {

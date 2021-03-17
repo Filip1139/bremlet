@@ -5,7 +5,7 @@ export const acfImageFragment = graphql`
     localFile {
       childImageSharp {
         fluid {
-          ...GatsbyImageSharpFluid_noBase64
+          ...GatsbyImageSharpFluid
         }
       }
     }

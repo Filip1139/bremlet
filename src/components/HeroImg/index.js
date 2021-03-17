@@ -4,15 +4,15 @@ import Image from "gatsby-image"
 
 import { device } from "../MediaQuery"
 
-export default function HeroImg({ src, desc }) {
+export default function HeroImg({ src, desc, title }) {
   return (
     <StyledSection tw="relative" src={src}>
-      <div tw="z-10 px-4">
-        <h2 tw="uppercase">Nasza oferta</h2>
-        <p tw="text-center text-lg lg:text-xl">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat
-          consequuntur at necessitatibus provident. Cumque, quos?
-        </p>
+      <div tw="absolute inset-0 bg-black bg-opacity-30"></div>
+      <div tw="z-10 h-full container relative flex flex-col w-full px-4 mx-auto text-white justify-center md:px-10 xl:px-0">
+        <h2>{title}</h2>
+        {desc && (
+          <p tw=" text-lg lg:text-2xl max-w-6xl  text-gray-200">{desc}</p>
+        )}
       </div>
     </StyledSection>
   )
@@ -21,7 +21,6 @@ export default function HeroImg({ src, desc }) {
 const StyledSection = styled.section`
   height: 60vh;
   background: url(${({ src }) => src && src}) center / cover;
-  ${tw`flex items-center justify-center text-center text-white font-messinaBook`}
 
   &:before {
     content: "";
@@ -32,14 +31,10 @@ const StyledSection = styled.section`
     margin-bottom: 16px;
   }
   @media ${device.laptop} {
-    height: 60vh;
+    height: 70vh;
     h2 {
       margin-bottom: 0;
-      font-size: 8vw;
-    }
-    p {
-      margin: 0 auto;
-      max-width: 80vw;
+      font-size: 7vw;
     }
   }
 `

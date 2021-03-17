@@ -5,7 +5,7 @@ import tw from "twin.macro"
 import { Link } from "gatsby"
 
 const Header = tw.header` 
-  fixed inset-x-0 top-0
+  fixed inset-x-0 top-0 z-50
 
   `
 export default function Index({ menu }) {

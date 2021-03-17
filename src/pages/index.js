@@ -5,7 +5,7 @@ import OverlapImages from "../components/OverlapImages"
 import tw from "twin.macro"
 import NewCollection from "../components/NewCollection"
 import NewProductsGrid from "../components/NewProductsGrid"
-import HomeAbout from "../components/HomeAbout"
+import TextWithThreeImgs from "../components/TextWithThreeImgs"
 import CollectionJumbo from "../components/CollectionJumbo"
 import SEO from "../components/seo"
 
@@ -18,13 +18,13 @@ export default function Index({ data: { home, products } }) {
 
   return (
     <>
-      <SEO />
+      <SEO title={home.seo.title} description={home.seo.metaDesc} />
       <Hero fields={home} />
       <OverlapImages fields={home} />
       <NewCollection fields={collection} />
       <NewProductsGrid fields={products.nodes} title="Nowe produkty" />
       <NewCollection fields={collectionSecond} direction="row-reverse" />
-      <HomeAbout fields={textImgGroup} />
+      <TextWithThreeImgs fields={textImgGroup} showLogo bigPadding />
       <CollectionJumbo fields={collectionCta} />
     </>
   )
@@ -33,6 +33,9 @@ export default function Index({ data: { home, products } }) {
 export const query = graphql`
   {
     home: wpPage(slug: { eq: "strona-glowna" }) {
+      seo {
+        ...SeoFragment
+      }
       HomeACF {
         heroHeading
         heroBg {

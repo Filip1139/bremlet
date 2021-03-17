@@ -2,9 +2,8 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Tailwind CSS ➕ Emotion Starter`,
-    description: `A bare-bones Tailwind CSS + Emotion starter to kickoff your project.`,
-    author: `@pauloelias`,
+    title: `Bremlet`,
+    description: `Producent wyrobów z drewna`,
   },
   plugins: [
     `gatsby-plugin-emotion`,
@@ -46,6 +45,7 @@ module.exports = {
         develop: {
           //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
           hardCacheMediaFiles: true,
+          hardCacheData: true,
         },
       },
     },

@@ -13,9 +13,14 @@ export default function Index({ data: { products } }) {
   console.log(bg)
   return (
     <>
-      <HeroImg src={bg} />
+      <HeroImg
+        src={bg}
+        title="Nasza oferta"
+        desc="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat
+          consequuntur at necessitatibus provident. Cumque, quos?"
+      />
       <section tw="pt-20 bg-accent-light-gray">
-        <div tw="container mx-auto px-4 md:px-10 ">
+        <div tw="container mx-auto px-4 md:px-10 lg:px-0">
           <h3 tw="text-4xl mb-10 font-messinaBook text-accent-gray">
             Wszystkie produkty
           </h3>

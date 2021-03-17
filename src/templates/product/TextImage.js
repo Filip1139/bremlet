@@ -23,7 +23,7 @@ export default function TextImage({ title, subtitle, desc, img }) {
       <StyledImageWrapper>
         <Image
           tw="h-full object-cover"
-          fluid={img.localFile.childImageSharp.fluid}
+          fluid={img?.localFile?.childImageSharp?.fluid}
         ></Image>
       </StyledImageWrapper>
     </section>
