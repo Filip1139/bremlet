@@ -53,16 +53,6 @@ async function turnPostsIntoPages({ graphql, actions }) {
       },
     })
   })
-
-  data.categories.nodes.forEach((category) => {
-    actions.createPage({
-      path: `/kategoria/${category.slug}`,
-      component: path.resolve("./src/templates/Archives.js"),
-      context: {
-        category,
-      },
-    })
-  })
 }
 
 async function turnProductsIntoPages({ graphql, actions }) {
