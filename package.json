@@ -53,6 +53,7 @@
     "gatsby-source-instagram-all": "^3.0.4",
     "gatsby-source-wordpress": "^5.0.0",
     "gatsby-transformer-sharp": "^3.0.0",
+    "leaflet": "^1.7.1",
     "postcss": "^8.2.6",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
