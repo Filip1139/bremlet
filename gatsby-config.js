@@ -40,6 +40,9 @@ module.exports = {
           hardCacheMediaFiles: true,
           hardCacheData: true,
         },
+        production: {
+          hardCacheMediaFiles: true,
+        },
       },
     },
     {

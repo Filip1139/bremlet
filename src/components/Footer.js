@@ -58,7 +58,7 @@ export default function Footer({ gallery }) {
       </section>
       <Newsletter />
 
-      {/* <footer tw="bg-accent-gray pb-10 pt-10 lg:pt-20">
+      <footer tw="bg-accent-gray pb-10 pt-10 lg:pt-20">
         <div tw="container px-4 lg:px-0 mx-auto grid gap-4 grid-cols-1  lg:grid-cols-12 relative">
           <div tw="lg:col-span-4 mb-2 md:mb-8 lg:mb-0">
             <Link to="/">
@@ -133,7 +133,7 @@ export default function Footer({ gallery }) {
           </div>
           <FooterCopyrights />
         </div>
-      </footer> */}
+      </footer>
     </>
   )
 }
