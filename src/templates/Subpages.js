@@ -1,5 +1,5 @@
 import React from "react"
-import DOMPurify from "dompurify"
+import sanitizeHtml from "sanitize-html"
 import tw, { styled } from "twin.macro"
 import bgPattern from "../images/bg-pattern.jpg"
 import TextRow from "./subpages/TextRow"
@@ -24,7 +24,7 @@ export default function Subpages({ pageContext }) {
           <div
             tw="prose "
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(acfFields.textwysywig),
+              __html: sanitizeHtml(acfFields.textwysywig),
             }}
           ></div>
         )}

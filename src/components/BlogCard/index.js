@@ -1,7 +1,7 @@
 import React from "react"
 import tw, { styled, css } from "twin.macro"
 import Img from "gatsby-image"
-import DOMPurify from "dompurify"
+import sanitizeHtml from "sanitize-html"
 import { Link } from "gatsby"
 
 import { device } from "../MediaQuery"
@@ -41,7 +41,7 @@ export default function BlogCard({
           <p
             tw="text-gray-500 xl:text-base 2xl:text-xl lg:w-11/12 mb-8"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(truncateString(excerpt, 100)),
+              __html: sanitizeHtml(truncateString(excerpt, 100)),
             }}
           ></p>
           <Link

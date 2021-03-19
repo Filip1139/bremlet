@@ -24,13 +24,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-instagram-all`,
-      options: {
-        access_token:
-          "IGQVJXMkJTeHd2dzYtMldublBZAOWdtZA0o1Y2lUb1pXejlLSVdaazEzR3M0QjVnWjE3aGJFWkd0ek80eUdUVXNsY3lacTF0NTU1c3NjYTljZATBrcFZA3THpWVEJkZATNIY3lfaktQbi00aEJXTkV0LWVKSgZDZD",
-      },
-    },
-    {
       resolve: `gatsby-source-wordpress`,
       options: {
         normalizers: (normalizers) => [

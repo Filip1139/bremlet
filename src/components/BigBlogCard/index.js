@@ -1,7 +1,7 @@
 import React from "react"
 import tw, { styled, css } from "twin.macro"
 import Img from "gatsby-image"
-import DOMPurify from "dompurify"
+import sanitizeHtml from "sanitize-html"
 import { Link } from "gatsby"
 import { device } from "../MediaQuery"
 
@@ -34,7 +34,7 @@ export default function BigBlogCard({ title, excerpt, img, uri, date }) {
           <p
             tw="xl:text-base 2xl:text-xl lg:w-11/12 mb-8"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(truncateString(excerpt, 100)),
+              __html: sanitizeHtml(truncateString(excerpt, 100)),
             }}
           ></p>
           <span tw="border-b-2 border-gray-500 hover:text-accent hover:border-accent transition-colors">

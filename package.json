@@ -63,6 +63,7 @@
     "react-id-swiper": "^4.0.0",
     "react-leaflet": "^3.1.0",
     "react-responsive": "^8.2.0",
+    "sanitize-html": "^2.3.2",
     "simple-react-lightbox": "^3.6.3",
     "swiper": "^6.4.15",
     "twin.macro": "^2.2.3",

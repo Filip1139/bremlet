@@ -4,13 +4,13 @@ import logo from "../images/logo.png"
 import tw from "twin.macro"
 import { Link } from "gatsby"
 
-const Header = tw.header` 
+const StyledHeader = tw.header` 
   fixed inset-x-0 top-0 z-50
 
   `
-export default function Index({ menu }) {
+export default function Header({ menu }) {
   return (
-    <Header>
+    <StyledHeader>
       <div tw="container text-white flex items-center md:justify-between">
         <Link to="/">
           <img src={logo} tw="py-2" alt="Bremlet woodwork logo" />
@@ -18,6 +18,6 @@ export default function Index({ menu }) {
 
         <Nav menu={menu} />
       </div>
-    </Header>
+    </StyledHeader>
   )
 }

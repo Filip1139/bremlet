@@ -1,7 +1,7 @@
 import React from "react"
 import tw, { styled } from "twin.macro"
 import Img from "gatsby-image"
-import DOMPurify from "dompurify"
+import sanitizeHtml from "sanitize-html"
 
 import {
   StyledSection,
@@ -32,13 +32,13 @@ export default function TextWithThreeImgs({
         <StyledBigText
           componentHasDesc={fields.desc}
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(fields.text),
+            __html: sanitizeHtml(fields.text),
           }}
         ></StyledBigText>
         {fields.desc && (
           <StyledDesc
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(fields.desc),
+              __html: sanitizeHtml(fields.desc),
             }}
           ></StyledDesc>
         )}

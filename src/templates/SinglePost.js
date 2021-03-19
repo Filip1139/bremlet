@@ -2,7 +2,7 @@ import React from "react"
 import tw, { styled } from "twin.macro"
 import { graphql } from "gatsby"
 import PostHero from "./singlePost/PostHero"
-import DOMPurify from "dompurify"
+import sanitizeHtml from "sanitize-html"
 import bgPattern from "../images/bg-pattern.jpg"
 
 export default function SinglePost({ data }) {
@@ -16,7 +16,7 @@ export default function SinglePost({ data }) {
         <div
           tw="prose mx-auto xl:prose-lg"
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(content),
+            __html: sanitizeHtml(content),
           }}
         ></div>
       </section>

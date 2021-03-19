@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "gatsby-image"
 import tw, { styled } from "twin.macro"
-import DOMPurify from "dompurify"
+import sanitizeHtml from "sanitize-html"
 import Button from "../Button"
 
 export default function HeroSubpage({ fields }) {
@@ -21,7 +21,7 @@ export default function HeroSubpage({ fields }) {
           <h6
             tw="max-w-6xl"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(fields.desc),
+              __html: sanitizeHtml(fields.desc),
             }}
           ></h6>
         </div>

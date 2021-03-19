@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import tw, { styled } from "twin.macro"
-import DOMPurify from "dompurify"
+import sanitizeHtml from "sanitize-html"
 
 export default function Tabs({ items }) {
   const [activeTab, setActiveTab] = useState(0)
@@ -28,7 +28,7 @@ export default function Tabs({ items }) {
             <p
               tw="xl:text-sm 2xl:text-lg"
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(item.desc),
+                __html: sanitizeHtml(item.desc),
               }}
             ></p>
           </TabContent>
