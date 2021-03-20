@@ -77,6 +77,7 @@ export default function SingleProductInfo({
       <ContactForm
         show={visibility}
         handleVisibility={(visibility) => setVisibility(visibility)}
+        productName={title}
       />
     </>
   )

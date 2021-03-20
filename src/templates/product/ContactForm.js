@@ -6,7 +6,7 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
 import { FaFacebookSquare } from "react-icons/fa"
 import { FaInstagram } from "react-icons/fa"
 
-export default function ContactForm({ show, handleVisibility }) {
+export default function ContactForm({ show, handleVisibility, productName }) {
   const overlayWrapper = useRef()
   const [formState, setFormState] = useState({
     name: "",
@@ -46,7 +46,15 @@ export default function ContactForm({ show, handleVisibility }) {
         ...formState,
       }),
     })
-      .then(() => console.log("done"))
+      .then(() => {
+        console.log("done")
+        setFormState({
+          name: "",
+          email: "",
+          phone: "",
+          question: "",
+        })
+      })
       .catch((error) => alert(error))
   }
   return (
@@ -68,23 +76,27 @@ export default function ContactForm({ show, handleVisibility }) {
             >
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="product" value={productName} />
               <StyledInput
                 type="text"
                 name="name"
                 placeholder="Imię"
                 onChange={handleChange}
+                value={formState.name}
               />
               <StyledInput
                 type="email"
                 name="email"
                 placeholder="Adres email"
                 onChange={handleChange}
+                value={formState.email}
               />
               <StyledInput
                 type="phone"
                 name="phone"
                 placeholder="Numer telefonu"
                 onChange={handleChange}
+                value={formState.phone}
               />
               <input type="hidden" name="product" />
               <StyledTextarea
@@ -94,13 +106,9 @@ export default function ContactForm({ show, handleVisibility }) {
                 rows="5"
                 placeholder="Treść wiadomości"
                 onChange={handleChange}
+                value={formState.question}
               ></StyledTextarea>
               <StyledSubmitButton>Wysślij zapytanie</StyledSubmitButton>
-              {/* <Button
-                variant="white-bg"
-                tw="mt-4 cursor-pointer"
-                title="Wyślij zapytanie"
-              /> */}
             </form>
           </div>
           <div tw="text-white">

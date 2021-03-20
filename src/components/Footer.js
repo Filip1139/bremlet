@@ -9,48 +9,9 @@ import { FaInstagram } from "react-icons/fa"
 import FooterCopyrights from "./FooterCopyrights"
 import Newsletter from "./Newsletter"
 
-const collectionsList = [
-  {
-    title: "Artisan",
-    link: "/",
-  },
-  {
-    title: "Artisan",
-    link: "/",
-  },
-  {
-    title: "Bright",
-    link: "/",
-  },
-  {
-    title: "Coco",
-    link: "/",
-  },
-  {
-    title: "Collectables",
-    link: "/",
-  },
-  {
-    title: "Karma Charcoal",
-    link: "/",
-  },
-  {
-    title: "Oxol",
-    link: "/",
-  },
-  {
-    title: "Salvage",
-    link: "/",
-  },
-  {
-    title: "KShelfmate",
-    link: "/",
-  },
-]
-
 export default function Footer({ gallery, menus }) {
   const galleryItems = gallery?.nodes[0]?.opcjeMotywu?.PageOptions?.gallery
-  console.log(menus)
+
   return (
     <>
       <section>
