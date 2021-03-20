@@ -1,6 +1,8 @@
 import React from "react"
 import tw from "twin.macro"
 import { graphql } from "gatsby"
+import SEO from "../components/seo"
+
 import TextWithThreeImgs from "../components/TextWithThreeImgs"
 import LongImage from "../components/LongImage"
 import TwoImagesText from "../components/TwoImagesText"
@@ -12,6 +14,7 @@ export default function About({ data }) {
   const { aboutACF } = data.about
   return (
     <>
+      <SEO title={data.about.seo.title} description={data.about.seo.metaDesc} />
       <HeroSubpage fields={aboutACF?.hero} />
       <ImageTextCards fields={aboutACF?.boxes} />
 
