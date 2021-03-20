@@ -9,10 +9,7 @@ import { device } from "../components/MediaQuery"
 
 export default function Subpages({ pageContext }) {
   const { title, acfFields } = pageContext
-  console.log(
-    "🚀 ~ file: Subpages.js ~ line 7 ~ Subpages ~ pageContext",
-    pageContext
-  )
+
   return (
     <StyledSection>
       <div

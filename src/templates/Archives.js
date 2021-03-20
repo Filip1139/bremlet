@@ -8,7 +8,6 @@ import BigBlogCard from "../components/BigBlogCard"
 import Pagination from "../components/Pagination"
 
 export default function Archives({ data, pageContext }) {
-  console.log(data)
   const { posts } = data
 
   return (

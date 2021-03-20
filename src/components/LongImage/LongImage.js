@@ -6,7 +6,7 @@ export const StyledSection = styled.section`
 `
 
 export const StyledContainer = styled.div`
-  ${tw`container relative flex items-center justify-center mx-10 text-center xl:mx-auto`}
+  ${tw`container relative flex items-center justify-center  lg:mx-10 text-center xl:mx-auto`}
 
   height: 150vw;
   @media ${device.laptop} {

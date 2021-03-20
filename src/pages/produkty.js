@@ -10,7 +10,6 @@ import bg from "../images/collection-bg.jpg"
 // import SEO from "../components/seo"
 
 export default function Index({ data: { products } }) {
-  console.log(bg)
   return (
     <>
       <HeroImg

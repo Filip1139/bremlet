@@ -33,3 +33,10 @@ body {
 .swiper-pagination-bullet-active {
   background: #111;
 }
+
+body.header-bg-dark header a {
+  color: black !important;
+}
+body.header-bg-dark header a:after {
+  background: black !important;
+}

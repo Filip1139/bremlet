@@ -24,7 +24,12 @@ export default function Index({ data: { home, products } }) {
       <NewCollection fields={collection} />
       <NewProductsGrid fields={products.nodes} title="Nowe produkty" />
       <NewCollection fields={collectionSecond} direction="row-reverse" />
-      <TextWithThreeImgs fields={textImgGroup} showLogo bigPadding />
+      <TextWithThreeImgs
+        fields={textImgGroup}
+        showLogo
+        bigPadding
+        variant={3}
+      />
       <CollectionJumbo fields={collectionCta} />
     </>
   )

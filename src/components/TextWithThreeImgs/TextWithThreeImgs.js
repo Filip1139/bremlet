@@ -5,14 +5,14 @@ import bgPattern from "../../images/bg-pattern.jpg"
 
 export const StyledSection = styled.section`
   background: url(${bgPattern});
-  ${tw`relative z-10 pt-20 overflow-hidden xl:overflow-visible lg:pb-32`}
+  ${tw`relative z-10 pt-20  xl:overflow-visible lg:pb-32`}
 
   ${({ bigPadding }) =>
     bigPadding ? tw`md:pt-72 lg:pt-80` : tw`pt-10 lg:pt-20 `}
 `
 
 export const absolute = styled.div`
-  ${tw`xl:absolute`};
+  ${tw`absolute`};
 `
 
 export const StyledBigText = styled.div`
@@ -24,13 +24,31 @@ export const StyledBigText = styled.div`
     ${tw`max-w-screen-xl mx-auto `}
     font-size: 11vw;
   }
+  ${({ variant }) => variant === 2 && tw`py-32 md:pb-96 xl:pb-0`}
 `
 
 export const StyledFirstImage = styled.div`
-  ${tw`absolute top-0 z-0`};
-  width: 30vw;
+  ${tw`absolute top-5 z-0`};
+  width: 35vw;
   right: 0;
+  top: 7vw;
   max-width: 300px;
+
+  ${({ variant }) =>
+    variant === 1
+      ? css`
+          width: 40vw;
+          right: 5%;
+          height: 60vw;
+          top: 0;
+        `
+      : variant === 2
+      ? css`
+          top: -15%;
+          height: 60vw;
+        `
+      : css``}
+
   @media ${device.laptop} {
     right: 8.33333vw;
     width: 16.7361vw;
@@ -39,7 +57,26 @@ export const StyledFirstImage = styled.div`
 `
 
 export const StyledSecondImage = styled(absolute)`
-  ${tw`left-0 z-10 w-1/3 top-1/2 `}
+  ${tw`left-0 z-10 w-1/3 -bottom-8 `}
+  ${({ variant }) =>
+    variant === 1
+      ? css`
+          width: 40vw;
+
+          height: 60vw;
+          margin-top: 20px;
+        `
+      : variant === 2
+      ? css`
+          top: auto;
+          bottom: 0;
+          // width: 60vw;
+          height: 60vw;
+        `
+      : css``}
+
+
+
   @media ${device.tablet} {
     ${tw`z-0 top-1/3`}
   }
@@ -63,14 +100,33 @@ export const StyledSecondImage = styled(absolute)`
             width: 29.0278vw;
             left: 4.30556vw;
             top: 31.9444vw;
-            z-index: 13;
+            height: 40vw;
           `}
   }
 `
 
 export const StyledThirdImage = styled(absolute)`
   ${tw`right-0 bottom-10 `}
-  width: 30vw;
+  width: 50vw;
+
+  ${({ variant }) =>
+    variant === 1
+      ? css`
+          position: absolute;
+          width: 35vw;
+          right: 5%;
+          height: 60vw;
+          margin-top: 20px;
+          bottom: -20px;
+        `
+      : variant === 2
+      ? css`
+          position: absolute;
+          width: 60vw;
+          height: 60vw;
+        `
+      : css``}
+
   @media ${device.tablet} {
     ${tw`bottom-20`}
   }
@@ -89,6 +145,7 @@ export const StyledThirdImage = styled(absolute)`
           `
         : variant === 2
         ? css`
+        top: auto;
             bottom: -3.47222vw;
     right: 2vw;
     width: 37.3611vw;
@@ -98,7 +155,7 @@ export const StyledThirdImage = styled(absolute)`
         : css`
             width: 37.5vw;
             right: 8.33333vw;
-            bottom: -3.81944vw;
+            bottom: -6.81944vw;
             z-index: 2;
           `}
   }

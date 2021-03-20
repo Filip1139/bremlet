@@ -7,7 +7,6 @@ import bgPattern from "../images/bg-pattern.jpg"
 
 export default function SinglePost({ data }) {
   const { date, title, content, seo, featuredImage } = data.post
-  console.log(date, title)
 
   return (
     <StyledArticle>

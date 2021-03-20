@@ -48,9 +48,9 @@ const collectionsList = [
   },
 ]
 
-export default function Footer({ gallery }) {
+export default function Footer({ gallery, menus }) {
   const galleryItems = gallery?.nodes[0]?.opcjeMotywu?.PageOptions?.gallery
-
+  console.log(menus)
   return (
     <>
       <section>
@@ -86,42 +86,23 @@ export default function Footer({ gallery }) {
             </div>
           </div>
 
-          <div tw="col-span-full lg:col-span-2 text-sm md:text-3xl md:mb-3 lg:mb-0 lg:text-sm 2xl:text-lg">
-            <StyledColTitle>Collections</StyledColTitle>
-            <ul tw="text-gray-400">
-              {collectionsList.map((item) => (
-                <li tw="mb-2" key={item.title}>
-                  <StyledFooterLink to={item.link}>
-                    {item.title}
-                  </StyledFooterLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div tw="col-span-full lg:col-span-2 text-sm md:text-3xl md:mb-3 lg:mb-0 lg:text-sm 2xl:text-lg">
-            <StyledColTitle>Service</StyledColTitle>
-            <ul tw="text-gray-400">
-              {collectionsList.map((item) => (
-                <li tw="mb-2">
-                  <StyledFooterLink to={item.link}>
-                    {item.title}
-                  </StyledFooterLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div tw="col-span-full lg:col-span-2 text-sm md:text-3xl md:mb-3 lg:mb-0 lg:text-sm 2xl:text-lg">
-            <StyledColTitle>Legal</StyledColTitle>
-            <ul tw="text-gray-400">
-              {collectionsList.map((item) => (
-                <li tw="mb-2">
-                  <StyledFooterLink to={item.link}>
-                    {item.title}
-                  </StyledFooterLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {menus?.nodes?.map((menu) => (
+            <div
+              tw="col-span-full lg:col-span-2 text-sm md:text-3xl md:mb-3 lg:mb-0 lg:text-sm 2xl:text-lg"
+              key={menu.id}
+            >
+              <StyledColTitle>{menu.name}</StyledColTitle>
+              <ul tw="text-gray-400">
+                {menu?.menuItems?.nodes?.map((item) => (
+                  <li tw="mb-2" key={item.id}>
+                    <StyledFooterLink to={item.url}>
+                      {item.label}
+                    </StyledFooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           <div tw="absolute top-4  md:top-0 right-4 flex">
             <StyledIconWrapper href="#" tw="mr-2">

@@ -5,7 +5,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import SEO from "../components/seo"
 
-export default function Layout({ children }) {
+export default function Layout({ children, location }) {
   const data = useStaticQuery(graphql`
     {
       wpMenu(locations: { eq: MENU_1 }) {
@@ -28,6 +28,22 @@ export default function Layout({ children }) {
           }
         }
       }
+      FooterMenu: allWpMenu(
+        filter: { locations: { nin: MENU_1 } }
+        sort: { fields: locations }
+      ) {
+        nodes {
+          name
+          id
+          menuItems {
+            nodes {
+              id
+              url
+              label
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -35,9 +51,9 @@ export default function Layout({ children }) {
     <>
       <SEO />
       <GlobalStyles />
-      <Header menu={data.wpMenu} />
+      <Header menu={data.wpMenu} location={location.pathname} />
       {children}
-      <Footer gallery={data.gallery}>hlelo</Footer>
+      <Footer gallery={data.gallery} menus={data.FooterMenu}></Footer>
     </>
   )
 }

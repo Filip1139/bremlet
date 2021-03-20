@@ -25,14 +25,16 @@ export default function BigBlogCard({ title, excerpt, img, uri, date }) {
           )}
         </StyledImageWrapper>
         <div tw="relative z-10 text-white">
-          <span tw="mb-3 inline-block text-sm text-gray-200">{date}</span>
+          <span tw="mb-3 inline-block text-xs lg:text-sm text-gray-200">
+            {date}
+          </span>
 
-          <h3 tw="xl:text-2xl 2xl:text-4xl font-medium mb-6 hover:text-accent transition-colors">
+          <h3 tw="text-xl xl:text-2xl 2xl:text-4xl font-medium mb-6 hover:text-accent transition-colors">
             {title}
           </h3>
 
           <p
-            tw="xl:text-base 2xl:text-xl lg:w-11/12 mb-8"
+            tw="text-sm xl:text-base 2xl:text-xl lg:w-11/12 mb-8"
             dangerouslySetInnerHTML={{
               __html: sanitizeHtml(truncateString(excerpt, 100)),
             }}
@@ -51,7 +53,7 @@ const StyledImageWrapper = styled.div`
 `
 
 const StyledBox = styled(Link)`
-  ${tw`relative -mb-8 flex items-end p-10`}
+  ${tw`relative -mb-8 flex items-end p-4  lg:p-10`}
 
   grid-column: 1 / -1;
   height: 50vh;

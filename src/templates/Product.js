@@ -27,6 +27,13 @@ export default function Product({ data }) {
   const getRefs = (refs) => {
     setImagesRefs(refs)
   }
+  useEffect(() => {
+    document.body.classList.add("header-bg-dark")
+
+    return () => {
+      document.body.classList.remove("header-bg-dark")
+    }
+  })
 
   const renderProductImages = () => {
     const currentComponent = isTabletOrMobile ? (
@@ -78,9 +85,7 @@ export const query = graphql`
   query($slug: String!) {
     product: wpProdukt(slug: { eq: $slug }) {
       seo {
-        title
-        metaDesc
-        metaKeywords
+        ...SeoFragment
       }
       date(difference: "days")
       title

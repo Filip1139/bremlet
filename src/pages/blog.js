@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import tw, { styled } from "twin.macro"
 import { graphql } from "gatsby"
 import BlogCard from "../components/BlogCard"
@@ -10,12 +10,20 @@ import Pagination from "../components/Pagination"
 export default function Blog({ data, pageContext }) {
   const { posts } = data
 
+  useEffect(() => {
+    document.body.classList.add("header-bg-dark")
+
+    return () => {
+      document.body.classList.remove("header-bg-dark")
+    }
+  })
+
   return (
     <StyledSection>
-      <div tw="text-center py-20">
+      <div tw="text-center pt-28 pb-20 lg:py-20">
         <StyledPageTitle tw="font-messinaBook">Blog</StyledPageTitle>
       </div>
-      <div tw="container mx-auto pb-20 grid grid-cols-12 gap-x-8 gap-y-16">
+      <div tw="container mx-auto pb-20 grid grid-cols-12 lg:gap-x-8 gap-y-16">
         {posts.nodes.map((post, idx) => {
           if (
             idx == 0 &&

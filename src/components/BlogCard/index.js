@@ -57,7 +57,10 @@ export default function BlogCard({
 }
 
 const StyledImageWrapper = styled.div`
-  height: 25vw;
+  ${tw`h-72`}
+  @media ${device.laptop} {
+    height: 25vw;
+  }
   ${tw`relative mb-10`}
 `
 const StyledBox = styled.div`

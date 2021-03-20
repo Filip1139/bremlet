@@ -2,14 +2,8 @@ import tw, { styled } from "twin.macro"
 import { device } from "../MediaQuery"
 
 export const StyledHeroWrapper = styled.section`
-  ${tw`flex items-end justify-between lg:h-screen`}
-  height: 80vh;
-  @media ${device.tablet} {
-    height: 90vh;
-  }
-  @media ${device.laptop} {
-    height: 100vh;
-  }
+  ${tw`flex items-end justify-between h-screen`}
+
   background: url(${({ bgImg }) => bgImg}) center / cover no-repeat;
 `
 

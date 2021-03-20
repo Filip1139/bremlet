@@ -21,7 +21,6 @@ export default function TextWithThreeImgs({
   variant,
 }) {
   const getImageUrl = (image) => {
-    console.log(fields["img"])
     return fields[image]?.localFile?.childImageSharp?.fluid
   }
 
@@ -34,6 +33,7 @@ export default function TextWithThreeImgs({
           dangerouslySetInnerHTML={{
             __html: sanitizeHtml(fields.text),
           }}
+          variant={variant}
         ></StyledBigText>
         {fields.desc && (
           <StyledDesc

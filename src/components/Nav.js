@@ -1,6 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
+import { globalHistory } from "@reach/router"
+
+const path = globalHistory.location.pathname
 
 export default function Nav({ menu: { menuItems }, background }) {
   return (
@@ -26,6 +29,7 @@ const StyledLink = styled(Link)`
     ${({ itemsColor }) =>
       itemsColor === "header-transparent" ? tw`bg-white` : tw`bg-accent-gray`}
   }
+  &[aria-current],
   &:hover {
     &:after {
       ${tw`scale-x-100`}

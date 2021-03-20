@@ -132,7 +132,7 @@ const StyledOverlay = styled.div`
 `
 
 const StyledFormWrapper = styled.div`
-  ${tw`fixed inset-y-0 right-0 flex flex-col justify-between w-1/3 max-w-4xl p-10 transition duration-200 transform translate-x-full bg-accent-gray 2xl:w-1/4`}
+  ${tw`fixed inset-y-0 -right-1 flex flex-col justify-between w-1/3 max-w-4xl p-10 transition duration-200 transform translate-x-full bg-accent-gray 2xl:w-1/4`}
 
   ${({ show }) => show && tw`translate-x-0 `}
 `

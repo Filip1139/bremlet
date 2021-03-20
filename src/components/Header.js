@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Nav from "./Nav"
 import logo from "../images/logo.png"
 import tw, { styled } from "twin.macro"
@@ -33,11 +33,7 @@ export default function Header({ menu }) {
   }, [prevScrollPos, visible, handleScroll])
 
   return (
-    <StyledHeader
-      className={visible ? "visible" : "hide"}
-      visibility={visible}
-      background={bg}
-    >
+    <StyledHeader visibility={visible} background={bg}>
       <div tw="container text-white flex items-center md:justify-between">
         <Link to="/">
           <img src={logo} tw="py-2" alt="Bremlet woodwork logo" />

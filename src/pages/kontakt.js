@@ -1,6 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 import tw from "twin.macro"
 export default function Kontakt() {
+  useEffect(() => {
+    document.body.classList.add("header-bg-dark")
+
+    return () => {
+      document.body.classList.remove("header-bg-dark")
+    }
+  })
+
   return (
     <>
       <section tw="flex h-screen">
