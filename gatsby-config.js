@@ -43,6 +43,7 @@ module.exports = {
         production: {
           hardCacheMediaFiles: true,
         },
+        presets: `PREVIEW_OPTIMIZATION`,
       },
     },
     {

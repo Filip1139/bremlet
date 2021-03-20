@@ -29,7 +29,7 @@
     "node": ">=10.13"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "clean": "rimraf .cache public",
     "develop": "gatsby develop",
     "start": "npm run develop",

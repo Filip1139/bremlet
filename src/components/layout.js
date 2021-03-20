@@ -5,7 +5,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import SEO from "../components/seo"
 
-export default function Layout({ children, location }) {
+export default function Layout({ children }) {
   const data = useStaticQuery(graphql`
     {
       wpMenu(locations: { eq: MENU_1 }) {
@@ -51,7 +51,7 @@ export default function Layout({ children, location }) {
     <>
       <SEO />
       <GlobalStyles />
-      <Header menu={data.wpMenu} location={location.pathname} />
+      <Header menu={data.wpMenu} />
       {children}
       <Footer gallery={data.gallery} menus={data.FooterMenu}></Footer>
     </>
