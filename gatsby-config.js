@@ -9,7 +9,6 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
-
     `gatsby-plugin-react-helmet`,
 
     {
@@ -45,6 +44,7 @@ module.exports = {
         },
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {

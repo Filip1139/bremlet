@@ -78,6 +78,7 @@ export default function SingleProductInfo({
         show={visibility}
         handleVisibility={(visibility) => setVisibility(visibility)}
         productName={title}
+        formName="Zapytanie o produkt"
       />
     </>
   )

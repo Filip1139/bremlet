@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import tw from "twin.macro"
 
 import { useMediaQuery } from "react-responsive"
@@ -11,12 +11,15 @@ export default function NewProductsGrid({
   products,
   title = "Galeria produktów",
 }) {
+  const [isDesktop, setIsDesktop] = useState()
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 })
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
 
+  useEffect(() => {
+    isDesktopOrLaptop && setIsDesktop(true)
+  })
   const productsItems = fields ? fields : products
 
-  const productsLayout = isDesktopOrLaptop ? (
+  const productsLayout = isDesktop ? (
     <ProductsGrid fields={productsItems} gridItemsWidth={gridItemsWidth} />
   ) : (
     <ProductsSlider fields={productsItems} />
