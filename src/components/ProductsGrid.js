@@ -1,10 +1,10 @@
 import React from "react"
 import ProductCard from "./ProductCard"
-import tw from "twin.macro"
+import tw, { styled } from "twin.macro"
 export default function ProductsGrid({ fields, gridItemsWidth }) {
   // const items = fields.nodes ? fields.nodes : fields
   return (
-    <div tw="grid gap-4 grid-cols-12">
+    <StyledGridWrapper>
       {fields.map((product, idx) => (
         <ProductCard
           key={product.id}
@@ -13,6 +13,10 @@ export default function ProductsGrid({ fields, gridItemsWidth }) {
           showBadge
         />
       ))}
-    </div>
+    </StyledGridWrapper>
   )
 }
+
+const StyledGridWrapper = styled.div`
+  ${tw`grid gap-4 grid-cols-12`}
+`
