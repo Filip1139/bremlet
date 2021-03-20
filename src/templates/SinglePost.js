@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 
 export default function SinglePost({ data }) {
   const { date, title, content, seo, featuredImage } = data.post.nodes[0]
-  console.log(data.post)
+
   return (
     <>
       <SEO title={seo.title} description={seo.metaDesc} />
@@ -45,16 +45,6 @@ export const query = graphql`
           node {
             ...acfImageFragment
           }
-        }
-      }
-      edges {
-        next {
-          title
-          uri
-        }
-        previous {
-          title
-          uri
         }
       }
     }
