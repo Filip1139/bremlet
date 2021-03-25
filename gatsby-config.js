@@ -37,7 +37,7 @@ module.exports = {
         develop: {
           //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
           hardCacheMediaFiles: true,
-          hardCacheData: true,
+          // hardCacheData: true,
         },
         production: {
           hardCacheMediaFiles: true,

@@ -1,7 +1,7 @@
 import React from "react"
 import { GlobalStyles } from "twin.macro"
 import { useStaticQuery, graphql } from "gatsby"
-import Header from "./Header"
+import { Header } from "./Header"
 import Footer from "./Footer"
 import SEO from "../components/seo"
 

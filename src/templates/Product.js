@@ -46,7 +46,7 @@ export default function Product({ data }) {
 
   return (
     <>
-      <SEO description={seo.description} title={seo.title} />
+      <SEO description={seo.metaDesc} title={seo.title} />
       <article className={`product-${slug}`}>
         <StyledProductIntroGrid>
           {renderProductImages()}

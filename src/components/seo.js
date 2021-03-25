@@ -30,7 +30,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={pageTitle}
-      titleTemplate={pageTitle ? `%s | ${pageTitle}` : null}
+      titleTemplate={pageTitle ? `%s` : null}
       meta={[
         {
           name: `description`,
