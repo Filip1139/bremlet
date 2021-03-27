@@ -18,17 +18,18 @@ export const absolute = styled.div`
 export const StyledBigText = styled.div`
   font-size: 14.4928vw;
   z-index: 1;
-  ${tw`relative mt-10 leading-none tracking-wide text-center text-gray-800 uppercase pb-52 md:pb-96 xl:pb-0 font-messinaBook`}
+  ${tw`relative mt-10 lg:mt-0 leading-none tracking-wide text-center text-gray-800 uppercase pb-52 md:pb-96 xl:pb-0 `}
   ${({ componentHasDesc }) => (componentHasDesc ? tw`pb-0` : tw`pb-52`)}
   @media ${device.laptop} {
     ${tw`max-w-screen-xl mx-auto `}
     font-size: 11vw;
   }
+  ${({ variant }) => variant === 1 && tw`pt-44  xl:pt-0`}
   ${({ variant }) => variant === 2 && tw`py-32 md:pb-96 xl:pb-0`}
 `
 
 export const StyledFirstImage = styled.div`
-  ${tw`absolute top-5 z-0`};
+  ${tw`top-5 z-0`};
   width: 35vw;
   right: 0;
   top: 7vw;
@@ -37,43 +38,72 @@ export const StyledFirstImage = styled.div`
   ${({ variant }) =>
     variant === 1
       ? css`
-          width: 40vw;
-          right: 5%;
-          height: 60vw;
-          top: 0;
+          position: absolute;
+          top: -1.41546vw;
+          width: 43.4783vw;
+          height: 63.285vw;
+          right: 7.24638vw;
         `
       : variant === 2
       ? css`
+          position: absolute;
           top: -15%;
           height: 60vw;
         `
-      : css``}
+      : css`
+          position: absolute;
+          width: 33.0918vw;
+          right: 0px;
+          top: 19.3237vw;
+        `}
 
   @media ${device.laptop} {
+    position: absolute;
+    top: 0;
     right: 8.33333vw;
     width: 16.7361vw;
     height: 24.3056vw;
+    ${({ variant }) =>
+      variant === 1
+        ? css``
+        : variant === 2
+        ? css``
+        : css`
+            width: 16.6667vw;
+            right: 8.33333vw;
+            top: 4.375vw;
+          `}
   }
 `
 
-export const StyledSecondImage = styled(absolute)`
+export const StyledSecondImage = styled.div`
   ${tw`left-0 z-10 w-1/3 -bottom-8 `}
   ${({ variant }) =>
     variant === 1
       ? css`
-          width: 40vw;
-
-          height: 60vw;
-          margin-top: 20px;
+          position: absolute;
+          top: 14.4928vw;
+          left: 0px;
+          height: 48.7923vw;
+          width: 35.0242vw;
         `
       : variant === 2
       ? css`
-          top: auto;
-          bottom: 0;
-          // width: 60vw;
-          height: 60vw;
+      position: absolute;
+      top: auto;
+      bottom: 0px;
+      left: 0px;
+      height: 43.9614vw;
+      width: 33.8164vw;
+      z-index: 10;
+  }
         `
-      : css``}
+      : css`
+          position: absolute;
+          width: 35.7488vw;
+          left: 0px;
+          bottom: 10vw;
+        `}
 
 
 
@@ -81,6 +111,7 @@ export const StyledSecondImage = styled(absolute)`
     ${tw`z-0 top-1/3`}
   }
   @media ${device.wide} {
+    ${tw`absolute`}
     ${({ variant }) =>
       variant === 1
         ? css`
@@ -105,34 +136,37 @@ export const StyledSecondImage = styled(absolute)`
   }
 `
 
-export const StyledThirdImage = styled(absolute)`
-  ${tw`right-0 bottom-10 `}
+export const StyledThirdImage = styled.div`
+  ${tw`right-0 `}
   width: 50vw;
 
   ${({ variant }) =>
     variant === 1
       ? css`
-          position: absolute;
-          width: 35vw;
-          right: 5%;
-          height: 60vw;
-          margin-top: 20px;
-          bottom: -20px;
+          width: 89.372vw;
+          height: 67.6329vw;
+          margin-left: auto;
+          margin-top: 50px;
         `
       : variant === 2
       ? css`
-          position: absolute;
-          width: 60vw;
-          height: 60vw;
+          width: 45.8937vw;
+          height: 32.6087vw;
+          margin-left: auto;
         `
-      : css``}
+      : css`
+          position: absolute;
+          width: 43.4783vw;
+          right: 0px;
+          bottom: 8.33333vw;
+        `}
 
   @media ${device.tablet} {
     ${tw`bottom-20`}
   }
   @media ${device.laptop} {
-    ${tw`bottom-0 right-0 `} /* ${({ componentHasDesc }) =>
-      componentHasDesc && tw`translate-x-1/2`} */
+    ${tw`bottom-0 right-0 absolute`}
+    ${({ componentHasDesc }) => componentHasDesc && tw`translate-x-1/2`}
  
 
     ${({ variant }) =>
@@ -153,9 +187,9 @@ export const StyledThirdImage = styled(absolute)`
 }
           `
         : css`
-            width: 37.5vw;
+            width: 32.5vw;
             right: 8.33333vw;
-            bottom: -6.81944vw;
+            bottom: -8vw;
             z-index: 2;
           `}
   }

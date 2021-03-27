@@ -19,7 +19,10 @@ export default function ImagesThumbnails({ images, imagesRefs }) {
             idx === 0 && tw`bg-white`,
           ]}
         >
-          <Image fluid={img?.localFile?.childImageSharp?.fluid} />
+          <Image
+            tw="h-full w-full object-cover"
+            fluid={img?.localFile?.childImageSharp?.fluid}
+          />
         </div>
       ))}
     </StyledWrapper>

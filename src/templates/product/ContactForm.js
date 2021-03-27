@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react"
 import tw, { styled } from "twin.macro"
+import { MdClose } from "react-icons/md"
 
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
 import Form from "../../components/Form"
@@ -18,6 +19,10 @@ export default function ContactForm({ show, handleVisibility, productName }) {
       <StyledWrapper ref={overlayWrapper}>
         <StyledOverlay show={show} onClick={() => handleVisibility(false)} />
         <StyledFormWrapper show={show}>
+          <MdClose
+            tw="text-3xl text-white absolute top-4  right-4"
+            onClick={() => handleVisibility(false)}
+          ></MdClose>
           <Form heading="Zapytaj o produkt" product={productName} />
         </StyledFormWrapper>
       </StyledWrapper>
@@ -36,7 +41,7 @@ const StyledOverlay = styled.div`
 `
 
 const StyledFormWrapper = styled.div`
-  ${tw`fixed inset-y-0 -right-1 flex flex-col justify-between w-1/3 max-w-4xl p-10 transition duration-200 transform translate-x-full bg-accent-gray 2xl:w-1/4 overflow-auto`}
+  ${tw`fixed inset-y-0 lg:-right-1 flex flex-col justify-between w-full lg:w-1/3 max-w-4xl  p-4 pt-14 pb-10 lg:p-10 transition duration-200 transform translate-x-full bg-accent-gray 2xl:w-1/4 overflow-auto z-50`}
 
   ${({ show }) => show && tw`translate-x-0 `}
 `
