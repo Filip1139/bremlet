@@ -2,15 +2,14 @@ import tw, { styled } from "twin.macro"
 import { device } from "../MediaQuery"
 
 const StyledImageWrapperLogic = styled.div(({ direction }) => [
-  direction === "row-reverse"
-    ? tw`left-0 lg:pr-28 2xl:pr-40`
-    : tw`right-0 lg:pl-28 2xl:pl-40`,
+  direction === "row-reverse" ? tw`left-0` : tw`right-0 `,
 ])
 
 export const StyledImageWrapper = styled(StyledImageWrapperLogic)`
   height: 400px;
-  ${tw`lg:absolute lg:top-0 lg:bottom-0 lg:right-0 lg:w-3/4 lg:h-auto `}
+  ${tw`lg:absolute lg:top-0 lg:bottom-0 lg:right-0 lg:h-auto `}
   @media ${device.tablet} {
+    width: 70%;
     height: 600px;
   }
   @media ${device.laptop} {

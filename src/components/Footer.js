@@ -17,7 +17,7 @@ export default function Footer({ gallery, menus }) {
       <section>
         <ImagesSlider slides={galleryItems} heading="Galeria Bremlet" />
       </section>
-      <Newsletter />
+      {/* <Newsletter /> */}
 
       <footer tw="bg-accent-gray pb-10 pt-10 lg:pt-20">
         <div tw="container px-4 lg:px-0 mx-auto grid gap-4 grid-cols-1  lg:grid-cols-12 relative">
@@ -32,16 +32,19 @@ export default function Footer({ gallery, menus }) {
             <div tw="flex flex-col text-sm md:text-3xl lg:text-sm 2xl:text-lg">
               <div tw="flex mb-2">
                 <span tw="text-gray-400 lg:w-36 2xl:w-auto">Napsz do nas:</span>
-                <a tw="text-white ml-2" href="mailto:test@wp.pl">
-                  test@wp.pl
+                <a
+                  tw="text-white ml-2"
+                  href="mailto:bremlet@bremletwoodwork.com"
+                >
+                  bremlet@bremletwoodwork.com
                 </a>
               </div>
               <div tw="flex">
                 <span tw="text-gray-400 lg:w-36 2xl:w-auto">
                   Zadzwoń do nas:
                 </span>
-                <a tw="text-white ml-2" href="tel:322222222">
-                  333 333 333
+                <a tw="text-white ml-2" href="tel:+48665478773">
+                  +48 665 478 773
                 </a>
               </div>
             </div>
@@ -66,10 +69,17 @@ export default function Footer({ gallery, menus }) {
           ))}
 
           <div tw="absolute top-4  md:top-0 right-4 flex">
-            <StyledIconWrapper href="#" tw="mr-2">
+            <StyledIconWrapper
+              href="https://www.facebook.com/BremletWoodwork/"
+              tw="mr-2"
+              target="_blank"
+            >
               <FaFacebookSquare />
             </StyledIconWrapper>
-            <StyledIconWrapper href="#">
+            <StyledIconWrapper
+              href="https://www.instagram.com/bremletwoodwork"
+              target="_blank"
+            >
               <FaInstagram />
             </StyledIconWrapper>
           </div>

@@ -38,6 +38,9 @@ const StyledContainer = styled.div`
     @media ${device.laptop} {
       font-size: 7vw;
     }
+    @media ${device.large} {
+      font-size: 5vw;
+    }
   }
   h6 {
     ${tw`text-base lg:text-2xl text-gray-200`}

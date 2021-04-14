@@ -9,6 +9,10 @@ export const StyledSection = styled.section`
 
   ${({ bigPadding }) =>
     bigPadding ? tw`md:pt-72 lg:pt-80` : tw`pt-10 lg:pt-20 `}
+
+    .parallax-inner {
+    ${tw`h-full`}
+  }
 `
 
 export const absolute = styled.div`
@@ -22,7 +26,7 @@ export const StyledBigText = styled.div`
   ${({ componentHasDesc }) => (componentHasDesc ? tw`pb-0` : tw`pb-52`)}
   @media ${device.laptop} {
     ${tw`max-w-screen-xl mx-auto `}
-    font-size: 11vw;
+    font-size: 10vw;
   }
   ${({ variant }) => variant === 1 && tw`pt-44  xl:pt-0`}
   ${({ variant }) => variant === 2 && tw`py-32 md:pb-96 xl:pb-0`}

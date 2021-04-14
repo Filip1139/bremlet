@@ -124,11 +124,15 @@ export default function Form({ heading, product, children, formName }) {
       <div tw="text-white">
         <p>Nasze social media:</p>
         <div tw="flex mt-2  text-lg">
-          <a href="https://twitter.com" target="_blank" tw="mr-2">
+          <a
+            href="https://www.facebook.com/BremletWoodwork/"
+            target="_blank"
+            tw="mr-2"
+          >
             <FaFacebookSquare />
           </a>
 
-          <a href="https://www.facebook.com" target="_blank">
+          <a href="https://www.instagram.com/bremletwoodwork" target="_blank">
             <FaInstagram />
           </a>
         </div>

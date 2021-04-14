@@ -2,7 +2,7 @@ import React from "react"
 import Image from "gatsby-image"
 import tw from "twin.macro"
 import { StyledImageWrapper, StyledTextWrapper } from "./NewCollection"
-
+import { ParallaxBanner } from "react-scroll-parallax"
 import Button from "../Button"
 
 export default function NewCollection({ fields, direction = "row" }) {
@@ -33,10 +33,16 @@ export default function NewCollection({ fields, direction = "row" }) {
         </StyledTextWrapper>
       </div>
       <StyledImageWrapper direction={direction}>
-        <Image
-          tw="h-full object-cover"
-          fluid={collectionImg.localFile.childImageSharp.fluid}
-        ></Image>
+        <ParallaxBanner
+          layers={[
+            {
+              image: collectionImg.localFile.childImageSharp.fluid.src,
+              amount: 0.1,
+            },
+          ]}
+          style={{ height: "100%" }}
+          tw="h-full w-full absolute! inset-0 object-cover"
+        ></ParallaxBanner>
       </StyledImageWrapper>
     </section>
   )

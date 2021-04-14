@@ -20,20 +20,19 @@ export default function Kontakt() {
                 <h6 tw="my-4 text-xl">Informacje kontaktowe</h6>
                 <ul tw="text-gray-400">
                   <li>
-                    <a tw="hover:underline" href="mailto:test@wp.pl">
-                      bremlet@wp.pl
+                    <a
+                      tw="hover:underline"
+                      href="mailto:bremlet@bremletwoodwork.com"
+                    >
+                      bremlet@bremletwoodwork.com
                     </a>
                   </li>
                   <li>
-                    <a tw="hover:underline" href="tel:500500500">
-                      +48 500 500 500
+                    <a tw="hover:underline" href="tel:+48665478773">
+                      +48 665 478 773
                     </a>
                   </li>
-                  <li>
-                    <a tw="hover:underline" href="tel:500500500">
-                      +48 500 500 500
-                    </a>
-                  </li>
+                  <li tw="mt-4">Kołodno 41 16-040, Podlaskie, Polska</li>
                 </ul>
               </div>
             </Form>
@@ -42,7 +41,7 @@ export default function Kontakt() {
         <div tw="w-3/5 h-auto">
           <iframe
             tw="w-full h-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76608.7805460361!2d23.086026561082594!3d53.12770770607341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ffc048f41971d%3A0x72317dcc8bf07b2c!2sBia%C5%82ystok!5e0!3m2!1spl!2spl!4v1616185623011!5m2!1spl!2spl"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91023.34561445602!2d23.37830979514388!3d53.16560645133753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dfff69825c7235%3A0x7008cd7b71bd4799!2sKo%C5%82odno%2041%2C%2016-040%20Ko%C5%82odno!5e0!3m2!1spl!2spl!4v1618419332075!5m2!1spl!2spl"
             allowfullscreen=""
             loading="lazy"
           ></iframe>

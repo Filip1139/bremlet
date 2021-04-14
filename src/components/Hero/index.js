@@ -3,6 +3,7 @@ import { useMediaQuery } from "react-responsive"
 
 import { StylecHeroContainer, StyledHeroWrapper } from "./Hero"
 import Button from "../Button"
+import { ParallaxBanner } from "react-scroll-parallax"
 
 export default function Hero({ fields: { HomeACF } }) {
   const isTabletOrMobileDevice = useMediaQuery({
@@ -16,7 +17,16 @@ export default function Hero({ fields: { HomeACF } }) {
   const heroBg = isTabletOrMobileDevice ? mobileBgImage : bgImage
 
   return (
-    <StyledHeroWrapper bgImg={heroBg}>
+    <StyledHeroWrapper>
+      <ParallaxBanner
+        layers={[
+          {
+            image: heroBg,
+            amount: 0.1,
+          },
+        ]}
+        style={{ height: "100%", position: "absolute" }}
+      ></ParallaxBanner>
       <StylecHeroContainer>
         <h1>{HomeACF.heroHeading}</h1>
 

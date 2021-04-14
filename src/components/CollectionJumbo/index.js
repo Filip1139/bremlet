@@ -1,6 +1,7 @@
 import React from "react"
 import tw, { styled } from "twin.macro"
 import Img from "gatsby-image"
+import { ParallaxBanner } from "react-scroll-parallax"
 
 import Button from "../Button"
 import DoodleAccent from "../DoodleAccent"
@@ -13,19 +14,29 @@ import {
 export default function CollectionJumbo({ fields }) {
   return (
     <section tw="relative z-0">
-      <Img
+      <ParallaxBanner
+        layers={[
+          {
+            image: fields.img.localFile.childImageSharp.fluid.src,
+            amount: 0.1,
+          },
+        ]}
+        style={{ height: "100%" }}
+        tw="h-full w-full absolute! inset-0 object-cover"
+      ></ParallaxBanner>
+      {/* <Img
         fluid={fields.img.localFile.childImageSharp.fluid}
         tw="h-full w-full absolute! inset-0 object-cover"
-      ></Img>
+      ></Img> */}
       <StyledContainer>
         <StyledHeading>{fields.title}</StyledHeading>
         <div tw="flex flex-col text-right xl:pr-10">
           <StyledHeading>
-            {fields.text}
             <span tw="lg:relative">
+              {fields.text}
               <DoodleAccent />
-              {fields.textAccent}
             </span>
+            {fields.textAccent}
           </StyledHeading>
         </div>
       </StyledContainer>

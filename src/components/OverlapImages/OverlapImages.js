@@ -18,7 +18,7 @@ export const StyledContainer = styled.div`
   }
 `
 
-export const StyledBiggerImage = styled(Img)`
+export const StyledBiggerImage = styled.div`
   ${tw`lg:absolute!  z-10 left-0`}
   top: 4vw;
   width: 80%;
