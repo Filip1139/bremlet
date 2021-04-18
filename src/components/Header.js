@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import Nav from "./Nav"
-import logo from "../images/logo.png"
+import logoLight from "../images/logo-light.svg"
+import logoDark from "../images/logo-dark.svg"
 import tw, { styled } from "twin.macro"
 import { Link } from "gatsby"
 import { debounce } from "../utilities/helpers"
@@ -11,6 +12,7 @@ export const Header = React.memo(({ menu }) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [visible, setVisible] = useState(true)
   const [bg, setBg] = useState("header-transparent")
+  const [logo, setLogo] = useState("light")
   const [headerHeight, setHeaderHeight] = useState(0)
   const [menuVisibility, setMenuVisibility] = useState(false)
   const header = useRef()
@@ -20,8 +22,10 @@ export const Header = React.memo(({ menu }) => {
     const currentScrollPos = window.pageYOffset
     if (currentScrollPos > 500) {
       setBg("header-white")
+      setLogo("dark")
     } else {
       setBg("header-transparent")
+      setLogo("light")
     }
     setVisible(
       (prevScrollPos > currentScrollPos &&
@@ -50,8 +54,8 @@ export const Header = React.memo(({ menu }) => {
         <div tw="container text-white flex items-center justify-between">
           <Link to="/">
             <img
-              src={logo}
-              tw="py-2 w-16  lg:w-auto"
+              src={logo == "dark" ? logoDark : logoLight}
+              tw="py-2 w-16 h-auto  lg:w-16"
               alt="Bremlet woodwork logo"
             />
           </Link>
