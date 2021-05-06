@@ -59,4 +59,7 @@ const StyledTextHero = styled.h1`
     width: 90%;
     padding-top: 9vw;
   }
+  @media ${device.large} {
+    font-size: 150px;
+  }
 `

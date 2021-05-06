@@ -26,8 +26,8 @@ export default function Blog({ data, pageContext }) {
       <div tw="container mx-auto pb-20 grid grid-cols-12 lg:gap-x-8 gap-y-16">
         {posts.nodes.map((post, idx) => {
           if (
-            idx == 0 &&
-            (pageContext.currentPage == 1 || !pageContext.currentPage)
+            idx === 0 &&
+            (pageContext.currentPage === 1 || !pageContext.currentPage)
           ) {
             return (
               <BigBlogCard

@@ -5,7 +5,7 @@ import bgPattern from "../../images/bg-pattern.jpg"
 
 export const StyledSection = styled.section`
   background: url(${bgPattern});
-  ${tw`relative z-10 pt-20  xl:overflow-visible lg:pb-32`}
+  ${tw`relative z-10 pt-20 xl:overflow-visible lg:pb-32`}
 
   ${({ bigPadding }) =>
     bigPadding ? tw`md:pt-72 lg:pt-80` : tw`pt-10 lg:pt-20 `}
@@ -22,18 +22,18 @@ export const absolute = styled.div`
 export const StyledBigText = styled.div`
   font-size: 14.4928vw;
   z-index: 1;
-  ${tw`relative mt-10 lg:mt-0 leading-none tracking-wide text-center text-gray-800 uppercase pb-52 md:pb-96 xl:pb-0 `}
+  ${tw`relative mt-10 leading-none tracking-wide text-center text-gray-800 uppercase lg:mt-0 pb-52 md:pb-96 xl:pb-0 `}
   ${({ componentHasDesc }) => (componentHasDesc ? tw`pb-0` : tw`pb-52`)}
   @media ${device.laptop} {
     ${tw`max-w-screen-xl mx-auto `}
     font-size: 10vw;
   }
-  ${({ variant }) => variant === 1 && tw`pt-44  xl:pt-0`}
+  ${({ variant }) => variant === 1 && tw`pt-44 xl:pt-0`}
   ${({ variant }) => variant === 2 && tw`py-32 md:pb-96 xl:pb-0`}
 `
 
 export const StyledFirstImage = styled.div`
-  ${tw`top-5 z-0`};
+  ${tw`z-0 top-5`};
   width: 35vw;
   right: 0;
   top: 7vw;
@@ -121,7 +121,7 @@ export const StyledSecondImage = styled.div`
         ? css`
             left: -8%;
             height: 30vw;
-            top: 25%;
+            top: 35%;
           `
         : variant === 2
         ? css`
@@ -169,7 +169,7 @@ export const StyledThirdImage = styled.div`
     ${tw`bottom-20`}
   }
   @media ${device.laptop} {
-    ${tw`bottom-0 right-0 absolute`}
+    ${tw`absolute bottom-0 right-0`}
     ${({ componentHasDesc }) => componentHasDesc && tw`translate-x-1/2`}
  
 

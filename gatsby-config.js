@@ -10,7 +10,12 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
-
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: process.env.INSTAGRAM_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {

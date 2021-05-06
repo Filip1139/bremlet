@@ -1,5 +1,5 @@
 import React from "react"
-import tw, { styled, css } from "twin.macro"
+import tw, { styled } from "twin.macro"
 import Img from "gatsby-image"
 import sanitizeHtml from "sanitize-html"
 import { Link } from "gatsby"
@@ -49,11 +49,11 @@ export default function BigBlogCard({ title, excerpt, img, uri, date }) {
 }
 
 const StyledImageWrapper = styled.div`
-  ${tw`absolute inset-0 h-full w-full`}
+  ${tw`absolute inset-0 w-full h-full`}
 `
 
 const StyledBox = styled(Link)`
-  ${tw`relative -mb-8 flex items-end p-4  lg:p-10`}
+  ${tw`relative flex items-end p-4 -mb-8 lg:p-10`}
 
   grid-column: 1 / -1;
   height: 50vh;

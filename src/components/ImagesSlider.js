@@ -25,25 +25,29 @@ const sliderParams = {
 export default function ImagesSlider({ slides, heading }) {
   return (
     <section tw="overflow-hidden bg-accent-light-gray py-16 lg:py-32">
-      <SRLWrapper options={options}>
-        <StyledSwiperWrapper>
-          {heading && <h4 tw="text-3xl font-messinaBook mb-10">{heading}</h4>}
-          <StyledSwiper {...sliderParams}>
-            {slides.map((slide) => (
+      <StyledSwiperWrapper>
+        {heading && <h4 tw="text-3xl font-messinaBook mb-10">{heading}</h4>}
+        <StyledSwiper {...sliderParams}>
+          {slides.map((slide) => {
+            console.log(slide.node.localImage)
+            return (
               <SwiperSlide>
                 <StyledImageWrapper>
-                  <a href={slide.localFile.childImageSharp.fluid.src}>
+                  <a
+                    href="https://www.instagram.com/bremletwoodwork"
+                    target="_blank"
+                  >
                     <Img
                       tw="h-full"
-                      fluid={slide.localFile.childImageSharp.fluid}
+                      fluid={slide.node.localImage.childImageSharp.fluid}
                     ></Img>
                   </a>
                 </StyledImageWrapper>
               </SwiperSlide>
-            ))}
-          </StyledSwiper>
-        </StyledSwiperWrapper>
-      </SRLWrapper>
+            )
+          })}
+        </StyledSwiper>
+      </StyledSwiperWrapper>
     </section>
   )
 }

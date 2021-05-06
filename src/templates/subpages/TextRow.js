@@ -1,5 +1,5 @@
 import React from "react"
-import tw, { styled } from "twin.macro"
+import tw from "twin.macro"
 import sanitizeHtml from "sanitize-html"
 export default function TextRow({ num, title, desc }) {
   return (

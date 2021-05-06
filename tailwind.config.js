@@ -13,6 +13,15 @@ module.exports = {
     },
 
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+        },
+        maxWidth: {
+          "2xl": "1750px",
+        },
+      },
       colors: {
         ["accent-gray"]: "#262525",
         ["accent-light-gray"]: "#f2efec",
@@ -32,33 +41,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [
-    require("@tailwindcss/typography"),
-    ({ addComponents, theme }) => {
-      addComponents({
-        ".container": {
-          marginInline: "auto",
-          paddingInline: theme("spacing.4"),
-          maxWidth: theme("screens.sm"),
-
-          // Breakpoints
-          "@screen sm": {
-            maxWidth: theme("screens.sm"),
-          },
-          "@screen md": {
-            maxWidth: theme("screens.md"),
-          },
-          "@screen lg": {
-            maxWidth: theme("screens.lg"),
-          },
-          "@screen xl": {
-            maxWidth: theme("screens.xl"),
-          },
-          "@screen 2xl": {
-            maxWidth: "1750px",
-          },
-        },
-      })
-    },
-  ],
+  plugins: [require("@tailwindcss/typography")],
 }

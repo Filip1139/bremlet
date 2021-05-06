@@ -17,12 +17,16 @@ export default function Layout({ children }) {
         }
       }
 
-      gallery: allWp {
-        nodes {
-          opcjeMotywu {
-            PageOptions {
-              gallery {
-                ...acfImageFragment
+      gallery: allInstagramContent {
+        edges {
+          node {
+            caption
+            media_url
+            localImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
@@ -46,14 +50,13 @@ export default function Layout({ children }) {
       }
     }
   `)
-
   return (
     <>
       <SEO />
       <GlobalStyles />
       <Header menu={data.wpMenu} />
       {children}
-      <Footer gallery={data.gallery} menus={data.FooterMenu}></Footer>
+      <Footer gallery={data?.gallery} menus={data.FooterMenu}></Footer>
     </>
   )
 }

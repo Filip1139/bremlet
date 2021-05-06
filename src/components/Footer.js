@@ -7,11 +7,10 @@ import logo from "../images/logo-white.png"
 import { FaFacebookSquare } from "react-icons/fa"
 import { FaInstagram } from "react-icons/fa"
 import FooterCopyrights from "./FooterCopyrights"
-import Newsletter from "./Newsletter"
 
 export default function Footer({ gallery, menus }) {
-  const galleryItems = gallery?.nodes[0]?.opcjeMotywu?.PageOptions?.gallery
-
+  const galleryItems = gallery?.edges
+  console.log(galleryItems[0].node)
   return (
     <>
       <section>

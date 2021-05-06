@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "gatsby-image"
+import sanitizeHtml from "sanitize-html"
 
 import tw, { css } from "twin.macro"
 export default function TwoImagesText({ fields, ...restProps }) {
@@ -13,9 +14,12 @@ export default function TwoImagesText({ fields, ...restProps }) {
           />
         </div>
         <div tw="w-full lg:w-1/2 xl:pl-24 2xl:pl-52">
-          <p tw="text-gray-500 text-lg text-center lg:text-left">
-            {fields.desc}
-          </p>
+          <div
+            tw="text-gray-500 text-lg text-center lg:text-left"
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHtml(fields.desc),
+            }}
+          ></div>
           <Image
             fluid={fields?.smallImg?.localFile?.childImageSharp?.fluid}
             tw="lg:mt-52 transform translate-y-20 lg:translate-y-40"

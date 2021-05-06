@@ -1,6 +1,6 @@
 import React from "react"
 
-import tw, { styled } from "twin.macro"
+import tw from "twin.macro"
 import { Link } from "gatsby"
 import Nav from "./Nav"
 
