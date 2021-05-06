@@ -20,5 +20,5 @@ export const StyledImageWrapper = styled(StyledImageWrapperLogic)`
 export const StyledTextWrapper = styled.div(({ direction }) => [
   tw`relative z-10 pb-20 lg:w-1/4`,
   ,
-  direction === "row-reverse" && tw`ml-auto`,
+  direction === "row-reverse" && tw`ml-auto 2xl:pl-10`,
 ])
