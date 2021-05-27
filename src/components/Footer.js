@@ -10,7 +10,7 @@ import FooterCopyrights from "./FooterCopyrights"
 
 export default function Footer({ gallery, menus }) {
   const galleryItems = gallery?.edges
-  console.log(galleryItems[0].node)
+
   return (
     <>
       <section>

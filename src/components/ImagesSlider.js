@@ -29,7 +29,6 @@ export default function ImagesSlider({ slides, heading }) {
         {heading && <h4 tw="text-3xl font-messinaBook mb-10">{heading}</h4>}
         <StyledSwiper {...sliderParams}>
           {slides.map((slide) => {
-            console.log(slide.node.localImage)
             return (
               <SwiperSlide>
                 <StyledImageWrapper>

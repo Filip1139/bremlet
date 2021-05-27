@@ -5,19 +5,17 @@ import tw, { styled } from "twin.macro"
 import ProductCard from "../components/ProductCard"
 import HeroImg from "../components/HeroImg"
 
-import bg from "../images/collection-bg.jpg"
+import SEO from "../components/seo"
 
-// import SEO from "../components/seo"
+export default function Index({ data: { products, page } }) {
+  const bgImage =
+    page?.featuredImage?.node?.localFile?.childImageSharp?.fluid?.src
 
-export default function Index({ data: { products } }) {
+  const { heroHeading, heroDesc } = page.Products_ACF.productsAcf
   return (
     <>
-      <HeroImg
-        src={bg}
-        title="Nasza oferta"
-        desc="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat
-          consequuntur at necessitatibus provident. Cumque, quos?"
-      />
+      <SEO title={page.seo.title} description={page.seo.metaDesc} />
+      <HeroImg src={bgImage} title={heroHeading} desc={heroDesc} />
       <section tw="pt-20 bg-accent-light-gray">
         <div tw="container mx-auto px-4 md:px-10 lg:px-0">
           <h3 tw="text-4xl mb-10 font-messinaBook text-accent-gray">
@@ -44,6 +42,22 @@ const StyledGrid = styled.div`
 
 export const query = graphql`
   {
+    page: wpPage(slug: { eq: "produkty" }) {
+      seo {
+        ...SeoFragment
+      }
+      Products_ACF {
+        productsAcf {
+          heroHeading
+          heroDesc
+        }
+      }
+      featuredImage {
+        node {
+          ...acfImageFragment
+        }
+      }
+    }
     products: allWpProdukt(limit: 9999, sort: { fields: date, order: DESC }) {
       nodes {
         id
