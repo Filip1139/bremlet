@@ -38,6 +38,13 @@ module.exports = {
           requestConcurrency: 5, // currently set to 5
           previewRequestConcurrency: 2, // currently set to 2
           perPage: 20,
+          timeout: 60000,
+           
+        },
+         type: {
+          __all: {
+            limit: 10,
+          },
         },
         /*
          * The full URL of the WordPress site's GraphQL API.
