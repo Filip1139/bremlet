@@ -34,6 +34,11 @@ module.exports = {
           dropUnusedMediaNormalizer,
           ...normalizers,
         ],
+         schema: {
+          requestConcurrency: 20, // currently set to 5
+          previewRequestConcurrency: 5, // currently set to 2
+          perPage: 25,
+        },
         /*
          * The full URL of the WordPress site's GraphQL API.
          * Example : 'https://www.example-site.com/graphql'
@@ -43,9 +48,6 @@ module.exports = {
           //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
           hardCacheMediaFiles: true,
           // hardCacheData: true,
-        },
-        production: {
-          hardCacheMediaFiles: true,
         },
       },
     },
