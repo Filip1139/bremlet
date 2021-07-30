@@ -35,9 +35,9 @@ module.exports = {
           ...normalizers,
         ],
          schema: {
-          requestConcurrency: 20, // currently set to 5
-          previewRequestConcurrency: 5, // currently set to 2
-          perPage: 25,
+          requestConcurrency: 5, // currently set to 5
+          previewRequestConcurrency: 2, // currently set to 2
+          perPage: 20,
         },
         /*
          * The full URL of the WordPress site's GraphQL API.
